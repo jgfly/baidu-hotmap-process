@@ -93,7 +93,7 @@ def fill_color(img_path):
     for i in range(1, num_labels):
         if stats[i, cv2.CC_STAT_AREA] > 8000:
             mask[labels == i] = 0
-    mask = cv2.dilate(mask, None, iterations=1)
+    mask = cv2.dilate(mask, None, iterations=2)
     img[mask == 255] = [255, 255, 255]
     img[mask == 0] = [0, 0, 0]
     new_img = Image.fromarray(img)
